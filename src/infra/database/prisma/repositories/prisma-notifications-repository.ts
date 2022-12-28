@@ -5,10 +5,10 @@ import { PrismaService } from '../prisma.service';
 
 @Injectable()
 export class PrismaNotificationRepository implements NotificationsRepository {
-  constructor(private PrismaService: PrismaService) {}
+  constructor(private prismaService: PrismaService) {}
 
   async create(notification: Notification): Promise<void> {
-    await this.PrismaService.notification.create({
+    await this.prismaService.notification.create({
       data: {
         id: notification.id,
         content: notification.content.value,
